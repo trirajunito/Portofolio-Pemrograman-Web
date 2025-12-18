@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+    <script>
+    var awal = parseInt(prompt("Masukkan nilai awal:", ""));
+    var akhir = parseInt(prompt("Masukkan nilai akhir:", ""));
+
+    var deret = "";
+    var jumlahBilangan = 0;
+    var totalNilai = 0;
+
+    for (var i = awal; i <= akhir; i++) {
+
+        if (i % 2 == 0 && i % 3 == 0) {
+            deret += i + " ";
+            jumlahBilangan++;
+            totalNilai += i;
+        }
+    }
+
+    document.write("Nilai Awal : " + awal + "<br>");
+    document.write("Nilai Akhir : " + akhir + "<br>");
+    document.write("Deret yang tampil : " + deret + "<br>");
+    document.write("Jumlah deret bilangan : " + jumlahBilangan + " bilangan<br>");
+    document.write("Jumlah nilai bilangan tersebut : " + totalNilai + "<br>");
+
+    </script>
+</body>
+</html>

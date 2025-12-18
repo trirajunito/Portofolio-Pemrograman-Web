@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas Dialog Box & Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        label { display: inline-block; width: 120px; margin-bottom: 5px; }
+        #hasil {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 15px;
+            min-height: 40px;
+        }
+    </style>
+    <script>
+        // ALERT ketika halaman selesai dimuat
+        window.onload = function () {
+            alert("Selamat datang di program Dialog Box & Form!");
+        };
+
+        // PROMPT untuk mengisi nama dan usia ke form
+        function isiDenganPrompt() {
+            const nama = prompt("Masukkan nama Anda:", "");
+            if (nama === null) return; // user cancel
+
+            const usia = prompt("Masukkan usia Anda:", "20");
+            if (usia === null) return;
+
+            document.getElementById("nama").value = nama;
+            document.getElementById("usia").value = usia;
+        }
+
+        // KONFIRMASI sebelum menampilkan hasil
+        function kirimForm() {
+            const nama = document.getElementById("nama").value;
+            const usia = document.getElementById("usia").value;
+
+            if (nama === "" || usia === "") {
+                alert("Nama dan usia tidak boleh kosong!");
+                return;
+            }
+
+            const yakin = confirm("Apakah data yang Anda isi sudah benar?");
+            if (!yakin) {
+                alert("Silakan perbaiki data Anda terlebih dahulu.");
+                return;
+            }
+
+            document.getElementById("hasil").innerHTML =
+                `<strong>Data Terkirim</strong><br>
+                Nama : ${nama}<br>
+                Usia : ${usia} tahun`;
+        }
+    </script>
+</head>
+<body>
+
+    <h1>Tugas: Alert, Prompt, Confirm, dan Form</h1>
+
+    <p>
+        Gunakan tombol berikut untuk mengisi form dari <code>prompt</code>,
+        kemudian konfirmasi pengiriman dengan <code>confirm</code>.
+    </p>
+
+    <button type="button" onclick="isiDenganPrompt()">Isi Form dengan Prompt</button>
+    <br><br>
+
+    <form onsubmit="return false;">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama"><br>
+        
+        <label for="usia">Usia:</label>
+        <input type="text" id="usia" name="usia"><br><br>
+        
+        <button type="button" onclick="kirimForm()">Kirim</button>
+    </form>
+
+    <div id="hasil"></div>
+
+</body>
+</html>

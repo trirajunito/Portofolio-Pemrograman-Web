@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>KALKULATOR</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            box-shadow: 0 0 10px #888;
+        }
+
+        h2 {
+            color: darkred;
+        }
+
+        input, select {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            width: 120px;
+            height: 38px;
+        }
+
+        #hasil {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+    
+        <h2>Selamat Mencoba</h2>
+    
+        <table width="100%">
+            <tr>
+                <td><h3 style="color:red;">Nilai I</h3></td>
+                <td><h3 style="color:red;">Nilai II</h3></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <form onsubmit="hitung(); return false;">
+                        <input type="number" id="nilai1" required>
+                        
+                        <select id="operator">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">*</option>
+                            <option value="/">/</option>
+                            <option value="^">^ (pangkat)</option>
+                        </select>
+                    
+                        <input type="number" id="nilai2" required>
+                    
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    
+        <div id="hasil"></div>
+    
+    </div>
+    
+    <script>
+    function hitung() {
+        let n1 = parseFloat(document.getElementById("nilai1").value);
+        let n2 = parseFloat(document.getElementById("nilai2").value);
+        let op = document.getElementById("operator").value;
+        let hasil = 0;
+    
+        switch(op) {
+            case '+': hasil = n1 + n2; break;
+            case '-': hasil = n1 - n2; break;
+            case '*': hasil = n1 * n2; break;
+            case '/': 
+                if (n2 === 0) {
+                    alert("Tidak bisa membagi dengan 0!");
+                    return;
+                }
+                hasil = n1 / n2; 
+                break;
+            case '^':
+                hasil = Math.pow(n1, n2);
+                break;
+        }
+    
+        document.getElementById("hasil").innerHTML = "Hasil: " + hasil;
+    }
+    </script>
+
+</body>
+</html>

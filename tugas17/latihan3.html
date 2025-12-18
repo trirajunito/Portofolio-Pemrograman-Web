@@ -1,0 +1,41 @@
+
+<html>
+<head>
+<body>
+    <script language="JavaScript" type="text/javascript">
+        var myName = prompt("Please enter your name", "budi");
+        var nb = prompt("Please nama barang", "");
+        var hs = prompt("Please harga satuan", "");
+        var jb = prompt("Please jumlah barang", "");
+
+        hb = hs * jb;
+
+        if(hb > 500000) {
+            disc = (5 / 100 * hb);
+        } else if(hb > 300000) {
+            disc = (2 / 100 * hb);
+        } else {
+            disc = (0.5 / 100 * hb);
+        }
+
+        hbb = hb - disc;
+
+        
+        document.writeln("<font size=5 color='blue'>Penjualan Harga Barang</font>","<br>");
+        document.writeln("<font size=4 color='sienna'><pre>");
+        document.writeln("==============================", "<br>");
+        document.writeln("Nama barang           = ", nb, "<br>");
+        document.writeln("Harga satuan          = ", hs, "<br>");
+        document.writeln("Jumlah Barang         = ", jb, "<br>");
+        document.writeln("Harga Barang          = ", hb, "<br>");
+        document.writeln("Harga Discount        = ", disc, "<br>");
+        document.writeln("Harga Barang Bersih   = ", hbb,"<br>");
+        document.writeln("==============================", "<br>");
+        document.writeln("</font></pre>");
+        document.writeln("<font size=3 color='red'><blink>");
+        document.writeln("Created by "+ myName);
+        document.writeln("</font></blink>");
+    </script>
+</body>
+</head>
+</html>

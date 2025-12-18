@@ -1,0 +1,204 @@
+/* === GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0b1120;
+  color: #eaeaea;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSlideIn 0.8s ease-out forwards;
+}
+
+/* ANIMASI MASUK */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === NAVBAR === */
+header {
+  background: linear-gradient(to right, #000000, #0b1a35);
+  padding: 15px 50px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #37a0ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #37a0ff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #37a0ff;
+}
+
+/* === PROFILE SECTION === */
+.profile-section {
+  flex: 1;
+  padding: 80px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeUp 0.9s ease-out both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #121b2e;
+  border-radius: 20px;
+  padding: 40px;
+  gap: 40px;
+  box-shadow: 0 0 25px rgba(55, 160, 255, 0.2);
+  max-width: 1100px;
+}
+
+.profile-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(55, 160, 255, 0.3);
+  transition: transform 0.4s ease;
+}
+
+.profile-image img:hover {
+  transform: scale(1.05);
+}
+
+.profile-details {
+  flex: 1;
+  min-width: 300px;
+}
+
+.profile-details h1 {
+  color: #37a0ff;
+  font-size: 2rem;
+}
+
+.profile-details h3 {
+  color: #9bc8ff;
+  margin-bottom: 1rem;
+}
+
+.profile-details p {
+  color: #ccc;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.skills h2 {
+  color: #37a0ff;
+  margin-bottom: 10px;
+}
+
+.skills ul {
+  list-style: none;
+  padding: 0;
+}
+
+.skills ul li {
+  margin: 6px 0;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+/* === BUTTON === */
+.btn {
+  display: inline-block;
+  background: #37a0ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #005fbb;
+}
+
+/* === FOOTER === */
+footer {
+  background: #0a1323;
+  text-align: center;
+  padding: 20px;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .profile-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-image img {
+    width: 200px;
+    height: 200px;
+  }
+}

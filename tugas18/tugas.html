@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Function: Kalkulator, Trapesium, Deret</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .container {
+            width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #ccc;
+            box-shadow: 0 0 10px #888;
+        }
+
+        h2 {
+            color: darkred;
+        }
+
+        input, select {
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 8px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn-submit {
+            width: 120px;
+            height: 38px;
+        }
+
+        #hasil {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        #hasilTambahan {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: green;
+            white-space: pre-line;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .menu-box {
+            width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 2px dashed #999;
+        }
+    </style>
+</head>
+<body onload="tampilMenu()">
+
+    <!-- MENU PILIHAN -->
+    <div class="menu-box">
+        <h2>Menu Pilihan</h2>
+        <p>
+            [1] Menghitung Kalkulator<br>
+            [2] Menghitung Luas Trapesium<br>
+            [3] Menghitung Deret Bilangan
+        </p>
+        <button onclick="tampilMenu()">Pilih Menu</button>
+    </div>
+
+    <!-- KALKULATOR -->
+    <div class="container">
+        <h2>Selamat Mencoba (Kalkulator)</h2>
+
+        <table width="100%">
+            <tr>
+                <td><h3 style="color:red;">Nilai I</h3></td>
+                <td><h3 style="color:red;">Nilai II</h3></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <form onsubmit="hitung(); return false;">
+                        <input type="number" id="nilai1" required>
+                        
+                        <select id="operator">
+                            <option value="+">+</option>
+                            <option value="-">-</option>
+                            <option value="*">*</option>
+                            <option value="/">/</option>
+                            <option value="^">^ (pangkat)</option>
+                        </select>
+                    
+                        <input type="number" id="nilai2" required>
+                    
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </form>
+                </td>
+            </tr>
+        </table>
+
+        <div id="hasil"></div>
+        <div id="hasilTambahan"></div>
+    </div>
+
+    <script>
+    function tampilMenu() {
+        var pilihan = prompt(
+            "Menu Pilihan :\n" +
+            "[1] Menghitung Kalkulator\n" +
+            "[2] Menghitung Luas Trapesium\n" +
+            "[3] Menghitung Deret Bilangan\n\n" +
+            "Pilihan Anda :"
+        );
+
+        switch (pilihan) {
+            case "1":
+                alert("Silakan gunakan form KALKULATOR di bawah untuk menghitung.");
+                break;
+            case "2":
+                hitungTrapesium();
+                break;
+            case "3":
+                hitungDeret();
+                break;
+            default:
+                if (pilihan !== null) {
+                    alert("Pilihan tidak valid. Silakan pilih 1, 2, atau 3.");
+                }
+        }
+    }
+
+    // ========= FUNGSI KALKULATOR =========
+    function hitung() {
+        let n1 = parseFloat(document.getElementById("nilai1").value);
+        let n2 = parseFloat(document.getElementById("nilai2").value);
+        let op = document.getElementById("operator").value;
+        let hasil = 0;
+
+        switch(op) {
+            case '+': hasil = n1 + n2; break;
+            case '-': hasil = n1 - n2; break;
+            case '*': hasil = n1 * n2; break;
+            case '/': 
+                if (n2 === 0) {
+                    alert("Tidak bisa membagi dengan 0!");
+                    return;
+                }
+                hasil = n1 / n2; 
+                break;
+            case '^':
+                hasil = Math.pow(n1, n2);
+                break;
+        }
+
+        document.getElementById("hasil").innerHTML = "Hasil: " + hasil;
+        document.getElementById("hasilTambahan").innerHTML = ""; // clear area lain
+    }
+
+    // ========= FUNGSI LUAS TRAPESIUM =========
+    // Rumus: L = (a + b) * t / 2
+    function hitungTrapesium() {
+        var a = parseFloat(prompt("Masukkan panjang sisi sejajar pertama (a):", ""));
+        var b = parseFloat(prompt("Masukkan panjang sisi sejajar kedua (b):", ""));
+        var t = parseFloat(prompt("Masukkan tinggi trapesium (t):", ""));
+
+        if (isNaN(a) || isNaN(b) || isNaN(t)) {
+            alert("Input tidak valid. Pastikan semua nilai diisi angka.");
+            return;
+        }
+
+        var luas = (a + b) * t / 2;
+
+        document.getElementById("hasil").innerHTML = "";
+        document.getElementById("hasilTambahan").innerHTML =
+            "Perhitungan Luas Trapesium\n" +
+            "a = " + a + ", b = " + b + ", t = " + t + "\n" +
+            "Luas = (a + b) × t / 2 = " + luas;
+    }
+
+    // ========= FUNGSI DERET =========
+    function hitungDeret() {
+        var awal = parseInt(prompt("Masukkan nilai awal deret:", ""));
+        var akhir = parseInt(prompt("Masukkan nilai akhir deret:", ""));
+
+        if (isNaN(awal) || isNaN(akhir)) {
+            alert("Input harus berupa angka!");
+            return;
+        }
+        if (awal > akhir) {
+            alert("Nilai awal tidak boleh lebih besar dari nilai akhir.");
+            return;
+        }
+
+        var deret = "";
+        var jumlahBilangan = 0;
+        var totalNilai = 0;
+
+        for (var i = awal; i <= akhir; i++) {
+            if (i % 2 == 0 && i % 3 == 0) {
+                deret += i + " ";
+                jumlahBilangan++;
+                totalNilai += i;
+            }
+        }
+
+        document.getElementById("hasil").innerHTML = "";
+        document.getElementById("hasilTambahan").innerHTML =
+            "Perhitungan Deret Bilangan\n" +
+            "Nilai Awal : " + awal + "\n" +
+            "Nilai Akhir : " + akhir + "\n" +
+            "Deret yang tampil : " + (deret === "" ? "(tidak ada bilangan yang memenuhi)" : deret) + "\n" +
+            "Jumlah deret bilangan : " + jumlahBilangan + " bilangan\n" +
+            "Jumlah nilai bilangan tersebut : " + totalNilai;
+    }
+    </script>
+
+</body>
+</html>

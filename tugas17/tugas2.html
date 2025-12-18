@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas - 2</title>
+</head>
+<body>
+    <script>
+
+        // Segitiga Sama Kaki
+        var tinggi = parseInt(prompt("Masukkan tinggi segitiga:", ""));
+
+        console.log("=== Segitiga Sama Kaki ===");
+            
+        for (var i = 1; i <= tinggi; i++) {
+            var spasi = " ".repeat(tinggi - i);
+            var bintang = "*".repeat(2 * i - 1);
+            console.log(spasi + bintang);
+        }
+
+        // Belah Ketupat
+        var n = parseInt(prompt("Masukkan tinggi Belah Ketupat (harus ganjil):", ""));
+
+        if (n % 2 === 0) {
+            console.log("Tinggi harus bilangan ganjil!");
+        } else {
+            console.log("=== Belah Ketupat ===");
+        
+            // Bagian atas
+            for (var i = 1; i <= n; i += 2) {
+                var spasi = " ".repeat((n - i) / 2);
+                var bintang = "*".repeat(i);
+                console.log(spasi + bintang);
+            }
+        
+            // Bagian bawah
+            for (var i = n - 2; i >= 1; i -= 2) {
+                var spasi = " ".repeat((n - i) / 2);
+                var bintang = "*".repeat(i);
+                console.log(spasi + bintang);
+            }
+        }
+
+    </script>
+</body>
+</html>

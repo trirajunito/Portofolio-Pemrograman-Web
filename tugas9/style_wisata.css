@@ -1,0 +1,138 @@
+/* ===== STYLE MODERN UNTUK WEBSITE FRAME ===== */
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7fdfb;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  background: linear-gradient(to right, #29c6b7, #70e1f5);
+  color: white;
+  padding: 50px 20px;
+  border-radius: 0 0 30px 30px;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 12px 0;
+}
+.navbar a {
+  text-decoration: none;
+  color: #009688;
+  font-weight: 600;
+  margin: 0 20px;
+  transition: color 0.3s;
+}
+.navbar a:hover,
+.navbar a.active {
+  color: #004d40;
+}
+
+/* FRAME */
+.frame-content {
+  width: 100%;
+  height: 78vh;
+  border: none;
+  background-color: #f8fffd;
+  transition: opacity 0.5s ease;
+}
+
+/* INNER PAGES */
+.inner-body {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* CARD STYLE */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+.card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 300px;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-6px);
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* GALLERY PAGE */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* CONTACT FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin: auto;
+}
+input, textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+button {
+  background-color: #009688;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover {
+  background-color: #00796b;
+}
+
+/* FOOTER */
+footer {
+  background-color: #004d40;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  border-radius: 30px 30px 0 0;
+}
